@@ -26,11 +26,10 @@ int main(int argc, char **argv)
     
     clock_t t;
     t = clock();
-
-    printf("x = %lld \n", number);
+    printf("x = %lld\n", number);
 
     num itter = - 1;
-    
+
     while (1) {
         itter++;
         if (is_odd(number) == 1) {

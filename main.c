@@ -3,21 +3,26 @@
 #include <string.h>
 #include <ctype.h>
 
-int collatz_conjecture(unsigned long long n, int *itter)
+int collatz_conjecture(unsigned long long n)
 {
-    *itter = *itter + 1;
-
     if (n == 1) {
-        printf("%lld\n", n);
-        printf("finished in %d itterations\n", *itter);
+        printf("%11lld  | * 3 + 1 \n", n);
+        printf("%11d  | \\ 2  \n", 4);
+        printf("%11d  | \\ 2  \n", 2);
+        printf("%11d  | * 3 + 1\n", 1);
+        printf("%10s...|  \n", " ");
+        printf("%10s ..|  \n", " ");
+        printf("%10s  .|  \n", " ");
         return n;
     }
 
-    printf("%lld -> ", n);
+    if (n % 2 == 0) { 
+        printf("%11lld  | \\ 2  \n", n);
+        return collatz_conjecture(n / 2);
+    }
     
-    if (n % 2 == 0) { return collatz_conjecture(n / 2, itter); }
-    
-    return collatz_conjecture(n * 3 + 1, itter);
+    printf("%11lld  | * 3 + 1  \n", n);
+    return collatz_conjecture(n * 3 + 1);
 }
 
 int main(int argc, char **argv)
@@ -40,15 +45,13 @@ int main(int argc, char **argv)
     }
 
     unsigned long long n = atoll(argv[1]);
-    int i = 1;
-    int *itter = &i;
 
     if (n >= 999999999999999999) {
         fprintf(stderr, "error: input is too large: input must be less than 999999999999999999\n");
         exit(1);
     }
-    
-    collatz_conjecture(n, itter);
+
+    collatz_conjecture(n);
 
     return 0;
 }

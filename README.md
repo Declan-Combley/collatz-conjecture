@@ -16,9 +16,8 @@ The collatz conjecture has two rules, if $n$ is even you divide $n$ by two, and 
 
 eg
 
-```shell
-$ ./collatz 17
-$ 17 -> 52 -> 26 -> 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
+```
+ 17 -> 52 -> 26 -> 13 -> 40 -> 20 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1
 ```
 
 ## *Warning*
